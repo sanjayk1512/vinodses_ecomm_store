@@ -16,7 +16,7 @@ spec:
   spec:
     containers:
     - name: ecommstorecontainer
-      image: vinodses/ecomm_store
+      image: sanjayk062/ecomm_store
       ports:
       - containerPort: 80
 ---
