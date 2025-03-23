@@ -2,36 +2,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: ecomm-store
- labels:
-   app: ecomm-store
+ name: ecommstoreappdeployment
 spec:
  replicas: 1
  selector:
    matchLabels:
-     app: ecomm-store
+     app: ecommstore
  template:
   metadata:
-   name: ecomm-store
+   name: ecommstore
    labels:
-     app: ecomm-store
+     app: ecommstore
   spec:
     containers:
-    - name: ecomm-store
-      image: sanjayk062/ecomm-store:latest
+    - name: ecommstorecontainer
+      image: sanjayk062/ecomm_store
       ports:
       - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: ecomm-store-service
+ name: ecommstoresvc
 spec:
   type: LoadBalancer
   selector:
-   app: ecomm-store
+   app: ecommstore
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
+   - port: 80
+     targetPort: 80
 ...
